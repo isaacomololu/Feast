@@ -1,0 +1,48 @@
+{% extends 'post_base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="blog-post section-header-offset">
+  <div class="blog-post-container container">
+      <div class="blog-post-data">
+          <h3 class="title blog-post-title">{{ post.title }}</h3>
+          <div class="article-data">
+              <span>{{ publication_date }}</span>
+              <span class="article-data-spacer"></span>
+              <span>4 Min read</span>
+          </div>
+          <img src="{{ post.featured_image.url }}">
+        </div>
+      
+      
+        <div class="container">
+        <p>
+          {{ post.content }}
+        </p>
+    </div>
+    <div class="author d-grid">
+      <div class="author-image-box">
+          <img src="{{ user.avatar }}" alt="" class="article-image">
+      </div>
+      <div class="author-about">
+          <h3 class="author-name">{{ user.username }}</h3>
+          <p>
+            {{ user.description }}
+          </p>
+          <ul class="list social-media">
+              <li class="list-item">
+                  <a href="#" class="list-link"><i class="ri-instagram-line"></i></a>
+              </li>
+              <li class="list-item">
+                  <a href="#" class="list-link"><i class="ri-facebook-circle-line"></i></a>
+              </li>
+              <li class="list-item">
+                  <a href="#" class="list-link"><i class="ri-twitter-line"></i></a>
+              </li>
+          </ul>
+      </div>
+</div>
+</section>
+
+
+{% endblock %}
