@@ -212,7 +212,7 @@
                 <div class="article-data-container">
 
                     <div class="article-data">
-                        <span>23 Dec 2021</span>
+                        <span>{{ article.publication_date|date:"F j, Y" }}</span>
                         <span class="article-data-spacer"></span>
                         <span>3 Min read</span>
                     </div>
@@ -242,32 +242,32 @@
 
         <div class="popular-tags-container d-grid">
 
-            <a href="#" class="article">
+            <a href="{% url 'tag' tag_slug='Art' %}" class="article">
                 <span class="tag-name">#Art</span>
                 <img src="{% static 'images/tags/Art.jpg' %}" alt="" class="article-image">
             </a>
 
-            <a href="#" class="article">
+            <a href="{% url 'tag' tag_slug='starwars' %}" class="article">
                 <span class="tag-name">#Starwars</span>
                 <img src="{% static 'images/tags/Starwars.jpg' %}" alt="" class="article-image">
             </a>
 
-            <a href="#" class="article">
+            <a href="{% url 'tag' tag_slug='highfantasy' %}" class="article">
                 <span class="tag-name">#highfantasy</span>
                 <img src="{% static 'images/tags/Highfantasy.jpg' %}" alt="" class="article-image">
             </a>
 
-            <a href="#" class="article">
+            <a href="{% url 'tag' tag_slug='CBM' %}" class="article">
                 <span class="tag-name">#CBM</span>
                 <img src="{% static 'images/tags/CMB.jpg' %}" alt="" class="article-image">
             </a>
 
-            <a href="#" class="article">
+            <a href="{% url 'tag' tag_slug='nollywood' %}" class="article">
                 <span class="tag-name">#Nollywood</span>
                 <img src="{% static 'images/tags/NollyWood.jpg' %}" alt="" class="article-image">
             </a>
 
-            <a href="#" class="article">
+            <a href="{% url 'tag' tag_slug='Books' %}" class="article">
                 <span class="tag-name">#Books</span>
                 <img src="{% static 'images/tags/Books.jpg' %}" alt="" class="article-image">
             </a>

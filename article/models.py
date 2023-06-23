@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.urls import reverse
 
 
 class User(AbstractUser):
@@ -21,7 +22,10 @@ class Article(models.Model):
     category = models.ForeignKey('Category', on_delete=models.PROTECT)
     tags = models.ManyToManyField('Tag')
     featured_image = models.ImageField(upload_to='article_images/')
-    views_count = models.PositiveIntegerField(default=0)  # Field to track the number of views
+    views_count = models.PositiveIntegerField(default=0) 
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[self.pk])
 
     def __str__(self):
         return self.title

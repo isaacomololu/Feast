@@ -1,6 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Tags</h1>
-<p></p>
+
+<section class="older-posts section">
+    <!-- Add Post Fro A Certain Point And Continue From There To The Number The Space Provides -->
+    <div class="container">
+
+        <h2 class="title section-title" data-name="Related Posts">Older posts</h2>
+
+        <div >
+            {% for article in articles %}
+            <a href="{{ article.get_absolute_url }}" class="article d-grid">
+                <div class="older-posts-article-image-wrapper">
+                    <img src="{{ article.featured_image.url}}" alt="" class="article-image">
+                </div>
+
+                <div class="article-data-container">
+
+                    <div class="article-data">
+                        <span>{{ article.publication_date|date:"F j, Y" }}</span>
+                        <span class="article-data-spacer"></span>
+                        <span>3 Min read</span>
+                    </div>
+
+                    <h3 class="title article-title">{{ article.title }}</h3>
+                    <p class="article-description">{{ article.content| truncatewords:25 }}</p>
+
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+</section>
 {% endblock %}
+

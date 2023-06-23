@@ -30,15 +30,13 @@ def post(request, pk):
     return render(request, 'post.html', context)
 
 def tag(request, tag_slug):
-    tag = get_object_or_404(Tag, slug=tag_slug)
-    article = Article.objects.filter(tags=tag)
+    tag = get_object_or_404(Tag, name=tag_slug)
+    articles = Article.objects.filter(tags=tag)
     context = {
         'tag': tag,
-        'article': article
+        'articles': articles
     }
-
-    return render(request, 'tags.html', context)
-
+    return render(request, 'tag.html', context)
 
 
 
